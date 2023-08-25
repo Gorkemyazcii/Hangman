@@ -2,8 +2,9 @@ const word_el = document.getElementById("word");
 const popup = document.getElementById('popup-container')
 const message_el = document.getElementById('basarı');
 
-const correctLetters = ['j', 'a', 'v', 'h', 'c', 'n'];
+const correctLetters = [];
 const wrongLetters = [];
+const selectedWord = getRandomWord();
 
 function getRandomWord() {
     const words = ["javascript", "java", "python", "html", "css", "nodejs"];
@@ -14,7 +15,7 @@ function getRandomWord() {
 
 
 function displayWord() {
-    const selectedWord = getRandomWord();
+
 
     word_el.innerHTML = `
     ${selectedWord.split("").map(letter => `
@@ -33,5 +34,25 @@ function displayWord() {
         console.log("Bildiniz.");
     }
 }
+window.addEventListener('keydown', function (e) {
+    if (e.keyCode >= 65 && e.keyCode <= 90 || e.key == "i") {
+        const letter = e.key;
 
+        if (selectedWord.includes(letter)) {
+            if (!correctLetters.includes(letter)) {
+                correctLetters.push(letter);
+                displayWord();
+            }
+            else {
+                console.log("Kullanılmış harf");
+
+            }
+        } else {
+            if (!wrongLetters.includes(letter)) {
+                wrongLetters.push(letter);
+            }
+        }
+
+    }
+})
 displayWord();
