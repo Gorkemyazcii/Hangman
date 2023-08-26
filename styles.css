@@ -27,7 +27,7 @@ body {
 }
 
 .item {
-    /* display:none;*/
+    display: none;
 }
 
 #wrong-letters {
