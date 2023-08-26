@@ -3,6 +3,7 @@ const popup = document.getElementById('popup-container')
 const message_el = document.getElementById('basarı');
 const wrongLetters_el = document.getElementById('wrong-letters');
 const items = document.querySelectorAll('.item');
+const message = document.getElementById('message');
 
 const correctLetters = [];
 const wrongLetters = [];
@@ -58,7 +59,13 @@ function updateWrongeLetters() {
     }
 
 }
+function displayMessage() {
+    message.classList.add('show');
 
+    setTimeout(function () {
+        message.classList.remove('show');
+    }, 2000);
+}
 window.addEventListener('keydown', function (e) {
     if (e.keyCode >= 65 && e.keyCode <= 90 || e.key == "i") {
         const letter = e.key;
@@ -69,13 +76,17 @@ window.addEventListener('keydown', function (e) {
                 displayWord();
             }
             else {
-                console.log("Kullanılmış harf");
+                displayMessage();
+                message.classList.add('show');
 
             }
         } else {
             if (!wrongLetters.includes(letter)) {
                 wrongLetters.push(letter);
                 updateWrongeLetters();
+            }
+            else {
+                displayMessage();
             }
         }
 
