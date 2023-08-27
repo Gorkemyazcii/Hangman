@@ -68,15 +68,14 @@ function displayMessage() {
     }, 2000);
 }
 
-/*tekrarBtn.addEventListener('keypress', function (event) {
+tekrarBtn.addEventListener('keypress', function (event) {
     if (event.key === "Enter") {
 
         tekrarFunction();
     }
-});*/
+});
 
-tekrarBtn.addEventListener('click', tekrarFunction);
-
+tekrarBtn.addEventListener('click', () => tekrarFunction());
 function tekrarFunction() {
     correctLetters.splice(0);
     wrongLetters.splice(0);
