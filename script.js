@@ -4,10 +4,11 @@ const message_el = document.getElementById('basarı');
 const wrongLetters_el = document.getElementById('wrong-letters');
 const items = document.querySelectorAll('.item');
 const message = document.getElementById('message');
+const tekrarBtn = document.getElementById('tekrar');
 
 const correctLetters = [];
 const wrongLetters = [];
-const selectedWord = getRandomWord();
+let selectedWord = getRandomWord();
 
 function getRandomWord() {
     const words = ["javascript", "java", "python", "html", "css", "nodejs"];
@@ -66,6 +67,18 @@ function displayMessage() {
         message.classList.remove('show');
     }, 2000);
 }
+
+tekrarBtn.addEventListener('click', function () {
+    correctLetters.splice(0);
+    wrongLetters.splice(0);
+
+    selectedWord = getRandomWord();
+
+    displayWord();
+    updateWrongeLetters();
+
+    popup.style.display = 'none';
+})
 window.addEventListener('keydown', function (e) {
     if (e.keyCode >= 65 && e.keyCode <= 90 || e.key == "i") {
         const letter = e.key;
