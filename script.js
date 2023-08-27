@@ -11,7 +11,7 @@ const wrongLetters = [];
 let selectedWord = getRandomWord();
 
 function getRandomWord() {
-    const words = ["javascript", "java", "python", "html", "css", "nodejs"];
+    const words = ["javascript", "java", "python", "html", "css", "nodejs", "lua", "react", "charp"];
 
     return words[Math.floor(Math.random() * words.length)];
 
@@ -68,7 +68,16 @@ function displayMessage() {
     }, 2000);
 }
 
-tekrarBtn.addEventListener('click', function () {
+/*tekrarBtn.addEventListener('keypress', function (event) {
+    if (event.key === "Enter") {
+
+        tekrarFunction();
+    }
+});*/
+
+tekrarBtn.addEventListener('click', tekrarFunction);
+
+function tekrarFunction() {
     correctLetters.splice(0);
     wrongLetters.splice(0);
 
@@ -78,7 +87,9 @@ tekrarBtn.addEventListener('click', function () {
     updateWrongeLetters();
 
     popup.style.display = 'none';
-})
+}
+
+
 window.addEventListener('keydown', function (e) {
     if (e.keyCode >= 65 && e.keyCode <= 90 || e.key == "i") {
         const letter = e.key;
