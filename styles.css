@@ -3,8 +3,8 @@
 }
 
 body {
-    background-color: gray;
-    color: whitesmoke;
+    background: linear-gradient(rgb(194, 75, 194), rgb(7, 7, 58));
+    background-attachment: fixed;
     height: 80vh;
     display: flex;
     flex-direction: column;
