@@ -4,7 +4,7 @@ const message_el = document.getElementById('basarı');
 const wrongLetters_el = document.getElementById('wrong-letters');
 const items = document.querySelectorAll('.item');
 const message = document.getElementById('message');
-const tekrarBtn = document.getElementById('tekrar');
+let tekrarBtn = document.getElementById('tekrar');
 
 const correctLetters = [];
 const wrongLetters = [];
