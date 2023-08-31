@@ -39,13 +39,14 @@ function displayWord() {
         console.log("Bildiniz.");
     }
 }
-
+// Yanlış harf olursa çalışacak fonksiyon
 function updateWrongeLetters() {
     wrongLetters_el.innerHTML = `
     ${wrongLetters.length > 0 ? '<h3>Hatalı Harfler</h3>' : ''}
     ${wrongLetters.map(letter => `<span>${letter}</span>`)}
     
     `;
+    // Her yanlış kelime için yeni item eklenecek
     items.forEach((item, index) => {
         const errorCount = wrongLetters.length;
 
@@ -62,6 +63,7 @@ function updateWrongeLetters() {
     }
 
 }
+// Mesaj div'ine show classını ekle ve 2 saniye kaldıktan sonra kaldır
 function displayMessage() {
     message.classList.add('show');
 
@@ -76,7 +78,7 @@ tekrarBtn.addEventListener('keypress', function (event) {
         tekrarFunction();
     }
 });
-
+// Tekrar oyna butonuna basınca oyunu sıfırla
 tekrarBtn.addEventListener('click', () => tekrarFunction());
 function tekrarFunction() {
     correctLetters.splice(0);
@@ -90,11 +92,13 @@ function tekrarFunction() {
     popup.style.display = 'none';
 }
 
-
+// Basılan tuşların hangi tuş olduğunu gösteren fonksiyon
 window.addEventListener('keydown', function (e) {
     if (e.keyCode >= 65 && e.keyCode <= 90 || e.key == "i") {
+
         const letter = e.key;
 
+        // Doğru harf yoksa ekle
         if (selectedWord.includes(letter)) {
             if (!correctLetters.includes(letter)) {
                 correctLetters.push(letter);
@@ -102,9 +106,9 @@ window.addEventListener('keydown', function (e) {
             }
             else {
                 displayMessage();
-                message.classList.add('show');
 
             }
+            // Yanlış harf yoksa ekle 
         } else {
             if (!wrongLetters.includes(letter)) {
                 wrongLetters.push(letter);
