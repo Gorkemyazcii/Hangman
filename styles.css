@@ -3,15 +3,20 @@
 }
 
 body {
-    /* background: linear-gradient(rgb(194, 75, 194), rgb(7, 7, 58), rgb(88, 19, 19));*/
+    /*background: linear-gradient(rgb(194, 75, 194), rgb(7, 7, 58), rgb(88, 19, 19));*/
     /*background: radial-gradient(blue, red);*/
-    background-color: darkslateblue;
+    /*background-color: darkslateblue;*/
+    background-color: blueviolet;
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
 
+}
+
+p {
+    font-size: 25px;
 }
 
 .container {
@@ -35,6 +40,7 @@ body {
     position: absolute;
     top: 30px;
     right: 30px;
+    color: #fff;
 }
 
 #word {
@@ -47,7 +53,7 @@ body {
 
 .letter {
     border-bottom: 3px solid red;
-    color: bisque;
+    color: rgb(156, 223, 125);
     margin: 0 10px;
     font-size: 30px;
     height: 40px;
@@ -84,7 +90,7 @@ body {
 }
 
 #message {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(56, 150, 194, 0.3);
     font-size: 20px;
     border-radius: 5px;
     padding: 30px 100 px;
