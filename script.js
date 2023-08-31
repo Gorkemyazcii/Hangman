@@ -10,6 +10,7 @@ const correctLetters = [];
 const wrongLetters = [];
 let selectedWord = getRandomWord();
 
+// Bulunması gereken kelimeler
 function getRandomWord() {
     const words = ["javascript", "java", "python", "html", "css", "nodejs", "lua", "react", "charp"];
 
@@ -20,7 +21,6 @@ function getRandomWord() {
 
 function displayWord() {
 
-
     word_el.innerHTML = `
     ${selectedWord.split("").map(letter => `
         <div class="letter">
@@ -29,8 +29,9 @@ function displayWord() {
     `).join("")}
 
     `;
+    // Yazılan doğru harfleri yanyana dizer
     console.log(word_el.innerText.replace(/\n/g, ''));
-
+    // Dizilen harflerin seçilen kelime ile eşleşiyorsa popup kutusu gelecek
     const w = word_el.innerText.replace(/\n/g, '');
     if (w === selectedWord) {
         popup.style.display = 'flex';
@@ -54,6 +55,7 @@ function updateWrongeLetters() {
             item.style.display = 'none';
         }
     })
+    // Yanlış harfler item sayısına eşitlenince gelecek popup kutusu
     if (wrongLetters.length === items.length) {
         popup.style.display = 'flex';
         message_el.innerText = "Kaybettiniz.";
