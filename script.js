@@ -9,6 +9,7 @@ let tekrarBtn = document.getElementById('tekrar');
 const correctLetters = [];
 const wrongLetters = [];
 let selectedWord = getRandomWord();
+tekrarBtn.addEventListener('keypress', setQuery)
 
 // Bulunması gereken kelimeler
 function getRandomWord() {
@@ -72,8 +73,8 @@ function displayMessage() {
     }, 2000);
 }
 
-tekrarBtn.addEventListener('keypress', function (event) {
-    if (event.key === "Enter") {
+tekrarBtn.addEventListener('keypress', function (e) {
+    if (e.keyCode == "13") {
 
         tekrarFunction();
     }
@@ -109,14 +110,12 @@ window.addEventListener('keydown', function (e) {
 
             }
             // Yanlış harf yoksa ekle 
-        } else {
-            if (!wrongLetters.includes(letter)) {
-                wrongLetters.push(letter);
-                updateWrongeLetters();
-            }
-            else {
-                displayMessage();
-            }
+        } else if (!wrongLetters.includes(letter)) {
+            wrongLetters.push(letter);
+            updateWrongeLetters();
+        }
+        else {
+            displayMessage();
         }
 
     }
