@@ -4,12 +4,12 @@ const message_el = document.getElementById('basarı');
 const wrongLetters_el = document.getElementById('wrong-letters');
 const items = document.querySelectorAll('.item');
 const message = document.getElementById('message');
-let tekrarBtn = document.getElementById('tekrar');
+const tekrarBtn = document.getElementById('tekrar');
 
 const correctLetters = [];
 const wrongLetters = [];
 let selectedWord = getRandomWord();
-tekrarBtn.addEventListener('keypress', setQuery)
+tekrarBtn.addEventListener('keypress', setQuery);
 
 // Bulunması gereken kelimeler
 function getRandomWord() {
@@ -73,12 +73,12 @@ function displayMessage() {
     }, 2000);
 }
 
-tekrarBtn.addEventListener('keypress', function (e) {
-    if (e.keyCode == "13") {
+const setQuery = (e) => {
+    if (e.keyCode == '13') {
 
         tekrarFunction();
     }
-});
+};
 // Tekrar oyna butonuna basınca oyunu sıfırla
 tekrarBtn.addEventListener('click', () => tekrarFunction());
 function tekrarFunction() {
