@@ -1,4 +1,4 @@
-# Hangman-Adam asmaca
+# Hangman -- Adam asmaca
 
 ![image](https://github.com/MrGorkemli/Hangman/assets/123131846/1205b245-cf21-4e70-96a1-188ab2558aa8)
 
